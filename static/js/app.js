@@ -52,7 +52,7 @@ function optionChanged(id) {
 // initial function
 function init() {
   // dropdown menu in HTML 
-  var dropdown = d3.select("#selDataset");
+  var drpdwn = d3.select("#selDataset");
 
   // read the data and apply function
   d3.json("samples.json").then((data)=> {
