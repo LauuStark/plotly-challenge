@@ -36,7 +36,7 @@ function main(id) {
       // data & layout for bubble chart
       var data1 = [trace_bubble]
       var layout_bubble = {
-        title: "Top 10 OTUs found in the individual",
+        title: "OTU ID",
       };
       Plotly.newPlot("bubble", data1, layout_bubble); 
   });
@@ -54,16 +54,10 @@ function init() {
   // dropdown menu in HTML 
   var dropdown = d3.select("#selDataset");
 
-  // read the data 
+  // read the data and apply function
   d3.json("samples.json").then((data)=> {
       console.log(data);
-
-      data.names.forEach(function(name) {
-          dropdown.append("option").text(name).property("value");
-      });
-
-      // call the functions to display the data and the plots to the page
-      main(data.names[0]);
+      main(data);
   });
 }
 
